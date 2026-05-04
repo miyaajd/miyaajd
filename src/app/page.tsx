@@ -1,7 +1,7 @@
 export default function Home() {
   return (
-    <main className="min-h-[95dvh] flex flex-col items-center justify-center text-center py-6 sm:py-10">
-      <p className="text-[clamp(12px,1vw,2rem)] pb-12 sm:pb-20">
+    <main className="min-h-[95dvh] flex flex-col items-center justify-center text-center sm:py-10">
+      <p className="text-[clamp(12px,1vw,2rem)] pb-8 sm:pb-20">
         Not just a portfolio. A living archive of visuals, interactions, and
         experiments.
       </p>
@@ -26,7 +26,7 @@ export default function Home() {
         <h1 className="text-[clamp(1rem,6vw,6rem)] font-normal leading-none">
           AND
         </h1>
-        {/* 각 링크로 연결되는 텍스트 - 베이킹 */}
+        {/* 각 링크로 연결되는 텍스트 - 디자인 */}
         <a
           href="/design"
           className="text-[clamp(2rem,9vw,9rem)] font-bold leading-tight tracking-tighter hover:opacity-20 hover:-translate-x-2 transition-all duration-300 ease-out"

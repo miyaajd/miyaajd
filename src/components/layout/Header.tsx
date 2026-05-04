@@ -46,15 +46,16 @@ function Header() {
   return (
     <div className="fixed top-0 left-0 right-0 z-50 w-full pt-4 px-4 flex justify-between items-center">
       {/* 로고 */}
-      <a className="z-50" href="/">
-        <Image
-          src="/icons/miyaajd--logo.svg"
-          alt="logo"
-          width={120}
-          height={40}
-          className={`${isOpenMenu ? "invert-100" : ""}`}
-        />
-      </a>
+      <div className="relative w-20 sm:w-30 aspect-3/1">
+        <a className="z-50" href="/">
+          <Image
+            src="/icons/miyaajd--logo.svg"
+            alt="logo"
+            fill
+            className={`${isOpenMenu ? "invert-100" : ""}`}
+          />
+        </a>
+      </div>
       {/* 메뉴 */}
       <button
         className={`text-[clamp(1rem,1.5vw,1.5rem)] cursor-pointer z-50 ${isOpenMenu ? "text-white" : "text-black"}`}
