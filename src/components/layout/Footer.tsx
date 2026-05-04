@@ -7,7 +7,7 @@ function Footer() {
       <span className="text-[clamp(12px,0.9vw,16px)]">©2026</span>
       {/* 메일투 */}
       <a
-        href="mailto:miyaajd@nowk.co.kr?subject=Project Inquiry"
+        href="mailto:miyaajd@nowk.co.kr?subject=Project%20Inquiry"
         className="text-[clamp(12px,0.9vw,16px)]"
       >
         ⇱miyaajd@nowk.co.kr

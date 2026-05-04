@@ -1,0 +1,36 @@
+{
+  "education": [
+    {
+      "period": "JUNE 2025 - DEC 2025",
+      "title": "UI/UX Planning & Frontend Development",
+      "subtitle": "UI/UX Planning & Frontend Development Program",
+      "school": ""
+    },
+    {
+      "period": "MAR 2017 - FEB 2024",
+      "title": "Major in Painting",
+      "subtitle": "Fine Art",
+      "school": "Keimyung University"
+    }
+  ],
+  "experience": [
+    {
+      "period": "DEC 2025 – Present",
+      "title": "Developing web services while leading visual direction, branding, and product design",
+      "company": "nowk",
+      "role": "Visual Director & Frontend Developer"
+    },
+    {
+      "period": "SEP 2025 - DEC 2025",
+      "title": "Brand E-commerce Website Development",
+      "company": "Vesper",
+      "role": "Freelance"
+    },
+    {
+      "period": "OCT 2025 - DEC 2025",
+      "title": "Web Service & Admin Dashboard Development",
+      "company": "Industry Project (Training Program)",
+      "role": "Student"
+    }
+  ]
+}
