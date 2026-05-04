@@ -1,0 +1,12 @@
+@import "tailwindcss";
+
+@import "../style/common.css";
+@import "../style/token.css";
+@import "../style/animation.css";
+
+
+body {
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}

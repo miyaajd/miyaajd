@@ -1,0 +1,69 @@
+@import "./token.css";
+
+/* =========================================================================================== 
+                                    COMMON CSS
+=========================================================================================== */
+/* 메뉴링크 스타일 */
+.menu-link {
+  font-size: clamp(2rem, 6vw, 6rem);
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: -0.05rem;
+  transition: all 0.3s ease;
+}
+.menu-link::before {
+  content: "↼";
+  position: absolute;
+  left: -2.5rem;
+  transform: translateX(-10px);
+  transition: all 0.3s ease;
+  opacity: 0;
+}
+.menu-link:hover::before {
+  opacity: 1;
+  transform: translateX(-8rem);
+}
+@media (hover: hover) {
+  .menu-link:hover {
+    opacity: 0.5;
+    transform: translateX(0.5rem);
+  }
+}
+/* 네브 스타일 */
+.nav {
+  position: fixed;
+  inset: 0;
+  z-index: 40;
+  background: var(--color-text);
+  color: var(--color-bg);
+  transition:
+    clip-path 0.7s cubic-bezier(0.76, 0, 0.24, 1),
+    visibility 0.8s cubic-bezier(0.76, 0, 0.24, 1);
+}
+/* 열릴 때 (원형 확장) */
+.nav-open {
+  clip-path: circle(150% at 100% 0%);
+  transition: clip-path 0.6s cubic-bezier(0.76, 0, 0.24, 1);
+}
+
+/* 초기 상태 */
+.nav-close {
+  clip-path: circle(0% at 100% 0%);
+  pointer-events: none;
+}
+
+/* 닫힐 때 (왼 → 오른쪽) */
+.nav-closing {
+  clip-path: inset(0 0 0 0);
+  animation: wipeOut 0.5s cubic-bezier(0.76, 0, 0.24, 1) forwards;
+}
+
+/* 핵심 애니메이션 */
+@keyframes wipeOut {
+  from {
+    clip-path: inset(0 0 0 0);
+  }
+  to {
+    clip-path: inset(0 100% 0 0);
+  }
+}
