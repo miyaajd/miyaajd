@@ -1,7 +1,7 @@
 export default function Home() {
   return (
     <main className="min-h-[95dvh] flex flex-col items-center justify-center text-center py-6 sm:py-10">
-      <p className="text-[clamp(1rem,2vw,2rem)] pb-12 sm:pb-20">
+      <p className="text-[clamp(12px,1vw,2rem)] pb-12 sm:pb-20">
         Not just a portfolio. A living archive of visuals, interactions, and
         experiments.
       </p>
@@ -19,7 +19,7 @@ export default function Home() {
         {/* 각 링크로 연결되는 텍스트 - 프론트엔드 */}
         <a
           href="/frontend"
-          className="text-[clamp(2rem,9vw,9rem)] font-bold leading-tight tracking-tighter hover:opacity-20 hover:-translate-x-2 transition-all duration-300 ease-out"
+          className="text-[clamp(2rem,8vw,9rem)] font-bold leading-tight tracking-tighter text-nowrap hover:opacity-20 hover:-translate-x-2 transition-all duration-300 ease-out"
         >
           FRONTEND DEVELOPER*
         </a>
