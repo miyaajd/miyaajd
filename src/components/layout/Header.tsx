@@ -46,8 +46,8 @@ function Header() {
   return (
     <div className="fixed top-0 left-0 right-0 z-50 w-full pt-4 px-4 flex justify-between items-center">
       {/* 로고 */}
-      <div className="relative w-20 sm:w-30 aspect-3/1">
-        <a className="z-50" href="/">
+      <div className="relative z-50 w-20 sm:w-30 aspect-3/1">
+        <a href="/">
           <Image
             src="/icons/miyaajd--logo.svg"
             alt="logo"
