@@ -1,6 +1,6 @@
 export default function Home() {
   return (
-    <main className="min-h-[95dvh] flex flex-col items-center justify-center text-center sm:py-10">
+    <main className="min-h-[92dvh] sm:min-h-[95dvh] flex flex-col items-center justify-center text-center sm:py-10">
       <p className="text-[clamp(12px,1vw,2rem)] pb-8 sm:pb-20">
         Not just a portfolio. A living archive of visuals, interactions, and
         experiments.
