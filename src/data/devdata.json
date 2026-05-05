@@ -1,0 +1,71 @@
+{
+  "devData": [
+    {
+      "no": "01",
+      "title": "Study",
+      "depth": [
+        {
+          "no": "01",
+          "title": "Web Clone Coding",
+          "href": "https://miyaajd.github.io/1st-personal-project/",
+          "depth": []
+        },
+        {
+          "no": "02",
+          "title": "Web Experience Team Project",
+          "href": "https://bohemian-theta.vercel.app/",
+          "depth": []
+        },
+        {
+          "no": "03",
+          "title": "Client-Driven UI/UX Team Project",
+          "href": "https://purus-b.vercel.app/",
+          "depth": []
+        },
+        {
+          "no": "04",
+          "title": "Client-Driven Admin Panel Team Project",
+          "href": "https://purus-c.vercel.app/admin/dashboard",
+          "depth": []
+        }
+      ]
+    },
+    {
+      "no": "02",
+      "title": "Lab",
+      "depth": [
+        {
+          "no": "01",
+          "title": "커스텀 룰렛",
+          "href": "/frontend/lab/custom-roulette",
+          "desc": "항목을 입력하고 룰렛을 돌려 랜덤 결과를 확인합니다.",
+          "depth": []
+        },
+        {
+          "no": "02",
+          "title": "YES or NO",
+          "href": "/frontend/lab/yes-or-no",
+          "desc": "고민을 입력하고 YES 또는 NO 답변을 랜덤으로 확인합니다.",
+          "depth": []
+        }
+      ]
+    },
+    {
+      "no": "03",
+      "title": "Web Site",
+      "depth": [
+        {
+          "no": "01",
+          "title": "nowk.co.kr",
+          "href": "https://nowk.co.kr",
+          "depth": []
+        }
+      ]
+    },
+    {
+      "no": "04",
+      "title": "Component",
+      "depth": []
+    }
+  ]
+}

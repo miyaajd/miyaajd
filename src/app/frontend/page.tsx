@@ -1,7 +1,10 @@
-import React from 'react'
+import DevProjectList from "@/src/components/DevProjectList";
+import devdata from "@/src/data/devdata.json";
 
-export default function page() {
+export default function Page() {
   return (
-    <div>page</div>
-  )
+    <main className="page-content dev-page-content">
+      <DevProjectList projects={devdata.devData} />
+    </main>
+  );
 }
