@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export default function Home() {
   return (
     <main className="page-home">
@@ -6,18 +8,18 @@ export default function Home() {
           WORKING AS
         </h1>
         {/* 각 링크로 연결되는 텍스트 - 비주얼 */}
-        <a href="/visual" className="home-role-link">
+        <Link href="/visual" className="home-role-link">
           VISUAL DIRECTOR*,
-        </a>
+        </Link>
         {/* 각 링크로 연결되는 텍스트 - 프론트엔드 */}
-        <a href="/frontend" className="home-role-link text-nowrap">
+        <Link href="/frontend" className="home-role-link text-nowrap">
           FRONTEND DEVELOPER*
-        </a>
+        </Link>
         <h1 className="text-fluid-eyebrow font-normal leading-none">AND</h1>
         {/* 각 링크로 연결되는 텍스트 - 디자인 */}
-        <a href="/design" className="home-role-link">
+        <Link href="/design" className="home-role-link">
           CREATIVE DESIGNER
-        </a>
+        </Link>
       </div>
       <p className="text-fluid-intro pt-8 sm:pt-12">
         Not just a portfolio. A living archive of visuals, interactions, and

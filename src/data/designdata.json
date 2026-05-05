@@ -1,0 +1,54 @@
+{
+  "designData": [
+    {
+      "img": {
+        "01": "/images/carrot1.jpg",
+        "02": "/images/victoria2.jpeg",
+        "03": "/images/lemon.jpeg",
+        "04": "/images/cali2.jpeg",
+        "05": "/images/financier.jpeg",
+        "06": "/images/carrot4.jpeg",
+        "07": "/images/carrot3.jpeg",
+        "08": "/images/banoffee.jpg",
+        "09": "/images/cali.jpeg"
+      },
+      "no": "01",
+      "title": "Arizona Bakery Signature",
+      "year": "2020",
+      "overview": "Arizona Bakery 의 시그니처 디저트 비주얼 디자인과 레시피 개발 진행 "
+    },
+    {
+      "img": {
+        "01": "/images/honu1.jpg",
+        "02": "/images/honu2.jpg",
+        "03": "/images/honu3.jpg",
+        "04": "/images/honu4.jpg"
+      },
+      "no": "02",
+      "title": "ARTY HONUX ✕ MIYAAJD",
+      "year": "2024",
+      "overview": "주얼리 브랜드 ARTY HONUX 의 컨셉촬영 케이크 디자인 및 제작"
+    },
+    {
+      "img": {
+        "01": "/images/kooven1.jpg",
+        "02": "/images/kooven2.jpg",
+        "03": "/images/kooven3.jpg"
+      },
+      "no": "03",
+      "title": "KOOVEN ✕ MIYAAJD",
+      "year": "2024",
+      "overview": "베이커리샵 KOOVEN 의 시즌 케이크 디자인 협업"
+    },
+    {
+      "img": {
+        "01": "/images/phone1.jpg",
+        "02": "/images/phone2.jpg"
+      },
+      "no": "04",
+      "title": "Case Phase001",
+      "year": "2025",
+      "overview": "개인 소장용 폰케이스 디자인"
+    }
+  ]
+}

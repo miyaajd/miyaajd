@@ -5,6 +5,7 @@
   --color-bg: #fff;
   --color-text: #111;
   --color-muted: #ddd;
+  --color-text-light: #b8b8b8;
   --color-point: #ff0000;
 
   --font-sans: "Pretendard", sans-serif;
@@ -19,6 +20,7 @@
   --text-fluid-signature: clamp(1rem, 2vw, 4rem);
   --text-fluid-contact: clamp(1rem, 2vw, 2rem);
   --text-fluid-body: clamp(12px, 1vw, 1.3rem);
+  --text-fluid-work-title: clamp(1.1rem, 1.5vw, 1.75rem);
 
   --tracking-tight: -0.05rem;
   --motion-duration-fast: 0.3s;
