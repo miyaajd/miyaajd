@@ -37,7 +37,7 @@ export default function Profile({ title, items }: Props) {
               )}
 
               {item.school && (
-                <div className="text-sm text-neutral-600">
+                <div className="text-sm text-neutral-400">
                   {item.school}
                 </div>
               )}

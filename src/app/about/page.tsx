@@ -41,6 +41,7 @@ export default function page() {
             <p className="about-description col-span-2 sm:hidden">
               {aboutDescription}
             </p>
+            <hr className="about-profile-divider" />
           </div>
         </div>
         <div className="order-2 self-start">
