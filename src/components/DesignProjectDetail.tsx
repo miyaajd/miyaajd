@@ -49,31 +49,40 @@ export default function DesignProjectDetail({
       </div>
 
       <footer className="design-detail-footer">
-        <div className="design-detail-current">
-          <span className="design-project-no">{project.no}</span>
-          <span className="design-project-title">{project.title}</span>
+        <div className="design-detail-footer-row design-detail-footer-primary">
+          <div className="design-detail-current">
+            <span className="design-project-no">{project.no}</span>
+            <span className="design-project-title">{project.title}</span>
+          </div>
+
+          <div className="design-detail-info">
+            {isInfoOpen && (
+              <div className="design-detail-info-body">
+                <p className="design-detail-overview">{project.overview}</p>
+              </div>
+            )}
+            <button
+              type="button"
+              className="design-detail-info-button"
+              onClick={() => setIsInfoOpen((current) => !current)}
+              aria-expanded={isInfoOpen}
+            >
+              Info
+            </button>
+          </div>
         </div>
 
-        <div className="design-detail-info">
-          {isInfoOpen && (
-            <div className="design-detail-info-body">
-              <p className="design-detail-overview">{project.overview}</p>
-            </div>
-          )}
-          <button
-            type="button"
-            className="design-detail-info-button"
-            onClick={() => setIsInfoOpen((current) => !current)}
-            aria-expanded={isInfoOpen}
-          >
-            Info
-          </button>
-        </div>
+        <div className="design-detail-footer-row design-detail-footer-nav">
+          <Link href="/design" className="design-detail-back">
+            <span aria-hidden="true">←</span>
+            <span>All Projects</span>
+          </Link>
 
-        <Link href={`/design/${nextProject.no}`} className="design-detail-next">
-          <span>Next Project</span>
-          <span aria-hidden="true">→</span>
-        </Link>
+          <Link href={`/design/${nextProject.no}`} className="design-detail-next">
+            <span>Next Project</span>
+            <span aria-hidden="true">→</span>
+          </Link>
+        </div>
       </footer>
     </section>
   );

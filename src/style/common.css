@@ -296,14 +296,22 @@
 }
 
 .design-detail-footer {
-  display: grid;
-  grid-template-columns: 1fr;
+  display: flex;
+  flex-direction: column;
   gap: 1.25rem;
-  align-items: end;
+}
+
+.design-detail-footer-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 1.5rem;
+  align-items: flex-end;
 }
 
 .design-detail-current {
   display: grid;
+  flex: 1 1 auto;
+  min-width: 0;
   grid-template-columns: 3rem minmax(0, 1fr);
   gap: 1rem;
   align-items: start;
@@ -336,16 +344,16 @@
 
 .design-detail-overview {
   font-size: var(--text-fluid-body);
-  text-align: center;
+  text-align: end;
   letter-spacing: var(--tracking-tight);
 }
 
+.design-detail-back,
 .design-detail-next {
   display: flex;
   flex-wrap: wrap;
   gap: 0.45rem;
   align-items: baseline;
-  justify-self: start;
   color: var(--color-text);
   text-decoration: none;
 }
@@ -357,9 +365,19 @@
 }
 
 @media (max-width: 639px) {
+  .design-detail-footer-row {
+    align-items: center;
+  }
+
+  .design-detail-footer-primary {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
   .design-detail-info {
     flex-direction: row;
     align-items: center;
+    min-width: 0;
   }
 
   .design-detail-info-button {
@@ -377,9 +395,11 @@
   .design-detail-overview {
     text-align: left;
   }
+}
 
-  .design-detail-next {
-    justify-self: end;
+@media (max-width: 479px) {
+  .design-preview {
+    width: min(96vw, 30rem);
   }
 }
 
@@ -392,22 +412,14 @@
     flex-basis: 48vw;
   }
 
-  .design-detail-footer {
-    grid-template-columns: 1fr auto 1fr;
-  }
-
   .design-detail-info {
-    justify-self: center;
+    align-items: flex-end;
   }
 
   .design-detail-info-body {
-    left: 50%;
+    left: auto;
+    right: 0;
     width: min(70vw, 44rem);
-    transform: translateX(-50%);
-  }
-
-  .design-detail-next {
-    justify-self: end;
   }
 
   .design-project-list {
@@ -429,10 +441,6 @@
 
   .design-detail-strip-image {
     flex-basis: 27vw;
-  }
-
-  .design-detail-footer {
-    grid-template-columns: 1fr auto 1fr;
   }
 
   .design-project-section {
