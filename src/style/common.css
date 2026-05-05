@@ -639,7 +639,7 @@
 
 .yesno-modal-panel {
   position: relative;
-  z-index: 1;
+  z-index: 2;
 }
 
 .yesno-modal-panel strong {
@@ -647,43 +647,77 @@
   line-height: 0.9;
 }
 
-.yesno-particles {
+.celebration-particles {
   position: absolute;
   left: 50%;
   top: 50%;
-  z-index: 0;
+  z-index: 3;
   width: 1px;
   height: 1px;
+  pointer-events: none;
 }
 
-.yesno-particles span {
+.celebration-particles span {
   position: absolute;
   left: 0;
   top: 0;
-  width: 0.42rem;
-  height: 0.42rem;
+  width: clamp(0.3rem, 1vw, 0.78rem);
+  height: clamp(0.3rem, 1vw, 0.78rem);
   border-radius: 50%;
-  background: var(--color-text);
+  background: hsl(0 0% calc(18% + (var(--particle-shape) * 22%)));
   opacity: 0;
-  animation: yesNoParticle 0.78s var(--motion-ease-default) forwards;
+  animation: celebrationParticle 1.65s cubic-bezier(0.12, 0.92, 0.18, 1)
+      forwards,
+    celebrationSparkle 0.28s linear infinite;
   animation-delay: var(--particle-delay);
-  transform: rotate(var(--particle-angle)) translateX(0);
+  box-shadow: 0 0 0.9rem rgb(255 255 255 / 0.9),
+    0 0 1.8rem rgb(0 0 0 / 0.25);
+  transform: rotate(var(--particle-angle)) translateX(0) scale(0.2);
 }
 
-@keyframes yesNoParticle {
+.celebration-particles span:nth-child(3n + 1) {
+  width: clamp(0.22rem, 0.65vw, 0.42rem);
+  height: clamp(1rem, 2.6vw, 2.1rem);
+  border-radius: 999px;
+}
+
+.celebration-particles span:nth-child(3n + 2) {
+  border: 2px solid rgb(255 255 255 / 0.95);
+  background: transparent;
+  box-shadow: 0 0 1rem rgb(255 255 255 / 0.95),
+    0 0 2rem rgb(0 0 0 / 0.18);
+}
+
+@keyframes celebrationParticle {
   0% {
     opacity: 0;
-    transform: rotate(var(--particle-angle)) translateX(0) scale(0.4);
+    transform: rotate(var(--particle-angle)) translateX(0) scale(0.2);
   }
 
-  18% {
+  10% {
     opacity: 1;
+    transform: rotate(var(--particle-angle)) translateX(3rem) scale(1.45);
+  }
+
+  58% {
+    opacity: 0.95;
   }
 
   100% {
     opacity: 0;
     transform: rotate(var(--particle-angle))
-      translateX(var(--particle-distance)) scale(1);
+      translateX(var(--particle-distance)) scale(0.12);
+  }
+}
+
+@keyframes celebrationSparkle {
+  0%,
+  100% {
+    filter: brightness(1);
+  }
+
+  50% {
+    filter: brightness(2.8);
   }
 }
 

@@ -1,6 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
+import CelebrationParticles from "@/src/components/CelebrationParticles";
 
 const MIN_SEGMENTS = 2;
 const MAX_SEGMENTS = 8;
@@ -182,7 +183,12 @@ export default function CustomRoulette({ desc }: Props) {
       {desc && <p className="dev-tool-desc roulette-desc">{desc}</p>}
 
       {result && (
-        <div className="roulette-modal" role="dialog" aria-modal="true">
+        <div
+          className="roulette-modal roulette-result-modal"
+          role="dialog"
+          aria-modal="true"
+        >
+          <CelebrationParticles />
           <div className="roulette-modal-panel">
             <p>Result</p>
             <strong>{result}</strong>

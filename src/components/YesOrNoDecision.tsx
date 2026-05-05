@@ -1,27 +1,15 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useState } from "react";
+import CelebrationParticles from "@/src/components/CelebrationParticles";
 
 type Props = {
   desc?: string;
 };
 
-const PARTICLE_COUNT = 22;
-
 export default function YesOrNoDecision({ desc }: Props) {
   const [question, setQuestion] = useState("");
   const [result, setResult] = useState("");
-
-  const particles = useMemo(
-    () =>
-      Array.from({ length: PARTICLE_COUNT }, (_, index) => ({
-        id: index,
-        angle: (360 / PARTICLE_COUNT) * index,
-        distance: 64 + (index % 5) * 12,
-        delay: (index % 6) * 0.035,
-      })),
-    []
-  );
 
   function handleDecide() {
     if (!question.trim()) {
@@ -70,20 +58,7 @@ export default function YesOrNoDecision({ desc }: Props) {
           role="dialog"
           aria-modal="true"
         >
-          <div className="yesno-particles" aria-hidden="true">
-            {particles.map((particle) => (
-              <span
-                key={particle.id}
-                style={
-                  {
-                    "--particle-angle": `${particle.angle}deg`,
-                    "--particle-distance": `${particle.distance}px`,
-                    "--particle-delay": `${particle.delay}s`,
-                  } as React.CSSProperties
-                }
-              />
-            ))}
-          </div>
+          {result === "YES" && <CelebrationParticles />}
           <div className="roulette-modal-panel yesno-modal-panel">
             <p>Destiny says</p>
             <strong>{result}!</strong>
