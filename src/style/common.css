@@ -404,6 +404,17 @@
 }
 
 @media (max-width: 479px) {
+  .design-page-content {
+    min-height: auto;
+    padding-top: 3.25rem;
+    padding-bottom: 3.25rem;
+  }
+
+  .design-project-section {
+    min-height: calc(100dvh - 10rem);
+    padding-block: 0;
+  }
+
   .design-preview {
     width: min(96vw, 30rem);
   }
