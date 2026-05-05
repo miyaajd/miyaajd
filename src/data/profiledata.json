@@ -2,13 +2,13 @@
   "education": [
     {
       "period": "JUNE 2025 - DEC 2025",
-      "title": "UI/UX Planning & Frontend Development",
+      "title": "UI/UX 기획 및 프론트엔드",
       "subtitle": "UI/UX Planning & Frontend Development Program",
       "school": ""
     },
     {
       "period": "MAR 2017 - FEB 2024",
-      "title": "Major in Painting",
+      "title": "서양화 전공",
       "subtitle": "Fine Art",
       "school": "Keimyung University"
     }
@@ -16,19 +16,19 @@
   "experience": [
     {
       "period": "DEC 2025 – Present",
-      "title": "Brand Website (Custom Frontend on Web Builder), Visual Direction, Branding, Packaging",
+      "title": "빌더환경 브랜드 자사몰 개발, 브랜딩, 비주얼 디렉팅, 패키징 디자인",
       "company": "nowk",
       "role": "Visual Director & Frontend Developer"
     },
     {
       "period": "SEP 2025 - DEC 2025",
-      "title": "Brand Website (Custom Frontend on Web Builder)",
+      "title": "빌더 환경 브랜드 자사몰 개발",
       "company": "Vesper",
       "role": "Freelance"
     },
     {
       "period": "OCT 2025 - DEC 2025",
-      "title": "Web Service & Admin Dashboard Development",
+      "title": "기업요구 웹 서비스 및 관리자 대시보드 개발 (팀 프로젝트)",
       "company": "Industry Project (Training Program)",
       "role": "Student"
     }
