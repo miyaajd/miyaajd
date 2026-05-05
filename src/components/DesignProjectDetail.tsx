@@ -45,7 +45,6 @@ export default function DesignProjectDetail({
           ))}
         </div>
 
-        <div className="design-detail-scroll-hint">Scroll right</div>
       </div>
 
       <footer className="design-detail-footer">

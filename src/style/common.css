@@ -288,13 +288,6 @@
   background: var(--color-muted);
 }
 
-.design-detail-scroll-hint {
-  width: fit-content;
-  margin: 1rem auto 0;
-  color: var(--color-text-light);
-  font-size: var(--text-fluid-caption);
-}
-
 .design-detail-footer {
   display: flex;
   flex-direction: column;
