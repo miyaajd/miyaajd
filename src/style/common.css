@@ -307,11 +307,15 @@
 
 .design-detail-current {
   display: grid;
-  flex: 1 1 auto;
+  flex: 0 1 auto;
   min-width: 0;
   grid-template-columns: 3rem minmax(0, 1fr);
   gap: 1rem;
   align-items: start;
+}
+
+.design-detail-year {
+  flex: 0 0 auto;
 }
 
 .design-detail-info {
@@ -369,6 +373,7 @@
   .design-detail-footer-primary {
     flex-direction: column;
     align-items: flex-start;
+    gap: 0.75rem;
   }
 
   .design-detail-info {

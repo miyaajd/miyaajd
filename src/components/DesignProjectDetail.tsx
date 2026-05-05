@@ -54,6 +54,10 @@ export default function DesignProjectDetail({
             <span className="design-project-title">{project.title}</span>
           </div>
 
+          <span className="design-project-year design-detail-year">
+            {project.year}
+          </span>
+
           <div className="design-detail-info">
             {isInfoOpen && (
               <div className="design-detail-info-body">
