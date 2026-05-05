@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useMemo, useState } from "react";
+import { useMemo } from "react";
 
 type DesignProject = {
   img: Record<string, string | undefined>;
@@ -31,20 +31,18 @@ export default function DesignProjectGrid({ projects }: Props) {
     () => [...projects].sort((a, b) => b.no.localeCompare(a.no)),
     [projects],
   );
-  const [activeProject, setActiveProject] = useState(firstProject);
-
-  if (!activeProject) {
+  if (!firstProject) {
     return null;
   }
 
-  const activeImage = getFirstImage(activeProject) ?? "/images/profilee.jpg";
+  const previewImage = getFirstImage(firstProject) ?? "/images/profilee.jpg";
 
   return (
     <section className="design-project-section">
       <div className="design-preview">
         <Image
-          src={activeImage}
-          alt={activeProject.title}
+          src={previewImage}
+          alt={firstProject.title}
           fill
           sizes="(max-width: 640px) 72vw, (max-width: 1024px) 60vw, 36vw"
           className="object-cover object-center"
@@ -58,8 +56,6 @@ export default function DesignProjectGrid({ projects }: Props) {
             key={project.no}
             href={`/design/${project.no}`}
             className="design-project-item"
-            onMouseEnter={() => setActiveProject(project)}
-            onFocus={() => setActiveProject(project)}
           >
             <span className="design-project-no">{project.no}</span>
             <span className="design-project-meta">
