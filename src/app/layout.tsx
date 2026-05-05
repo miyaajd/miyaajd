@@ -39,7 +39,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ko" className={`h-full antialiased`}>
-      <body className="min-h-full flex flex-col py-4 px-4 relative">
+      <body className="site-body">
         {/* header */}
         <Header></Header>
         {/* page */}

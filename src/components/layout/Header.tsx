@@ -2,9 +2,9 @@
 
 import React, { useEffect } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import Nav from "./Nav";
 import { useState } from "react";
-import { text } from "stream/consumers";
 
 function Header() {
   // 메뉴오픈 상태관리
@@ -44,21 +44,25 @@ function Header() {
   }, [isOpenMenu]);
 
   return (
-    <div className="fixed top-0 left-0 right-0 z-50 w-full pt-4 px-4 flex justify-between items-center">
+    <div className="site-header">
       {/* 로고 */}
-      <div className="relative z-50 w-20 sm:w-30 aspect-3/1">
-        <a href="/">
+      <div className="site-logo">
+        <Link
+          href="/"
+          className="site-logo-link"
+          onClick={isOpenMenu ? handleClose : undefined}
+        >
           <Image
             src="/icons/miyaajd--logo.svg"
             alt="logo"
             fill
             className={`${isOpenMenu ? "invert-100" : ""}`}
           />
-        </a>
+        </Link>
       </div>
       {/* 메뉴 */}
       <button
-        className={`text-[clamp(1rem,1.5vw,1.5rem)] cursor-pointer z-50 ${isOpenMenu ? "text-white" : "text-black"}`}
+        className={`menu-button ${isOpenMenu ? "text-white" : "text-black"}`}
         type="button"
         onClick={handleToggle}
       >

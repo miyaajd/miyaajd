@@ -3,20 +3,193 @@
 /* =========================================================================================== 
                                     COMMON CSS
 =========================================================================================== */
+/* 레이아웃 공통 스타일 */
+.site-body {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  padding: 1rem;
+}
+
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: var(--z-header);
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 1rem 0;
+}
+
+.site-logo {
+  position: relative;
+  z-index: var(--z-header);
+  width: 5rem;
+  aspect-ratio: 3 / 1;
+}
+
+.site-logo-link {
+  position: absolute;
+  inset: 0;
+  display: block;
+}
+
+.site-footer {
+  display: flex;
+  justify-content: space-between;
+}
+
+.page-home {
+  min-height: 92dvh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.page-content {
+  min-height: 95dvh;
+  padding-top: 4.5rem;
+  padding-bottom: 3.5rem;
+}
+
+@media (min-width: 640px) {
+  .site-logo {
+    width: 7.5rem;
+  }
+
+  .page-home {
+    min-height: 95dvh;
+    padding-block: 2.5rem;
+  }
+
+  .page-content {
+    padding-top: 7.5rem;
+  }
+}
+
+/* 텍스트 크기 공통 스타일 */
+.text-fluid-eyebrow {
+  font-size: var(--text-fluid-eyebrow);
+}
+
+.text-fluid-hero-link {
+  font-size: var(--text-fluid-hero-link);
+}
+
+.text-fluid-contact {
+  font-size: var(--text-fluid-contact);
+}
+
+.text-fluid-caption {
+  font-size: var(--text-fluid-caption);
+}
+
+.text-fluid-intro {
+  font-size: var(--text-fluid-intro);
+}
+
+.text-fluid-nav-action {
+  font-size: var(--text-fluid-nav-action);
+}
+
+.text-fluid-about-lead {
+  font-size: var(--text-fluid-about-lead);
+}
+
+.text-fluid-signature {
+  font-size: var(--text-fluid-signature);
+}
+
+.text-fluid-body {
+  font-size: var(--text-fluid-body);
+}
+
+/* 홈 히어로 스타일 */
+.home-role-stack {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.home-role-link {
+  font-size: var(--text-fluid-hero-link);
+  font-weight: 700;
+  line-height: 1.25;
+  letter-spacing: var(--tracking-tight);
+  transition:
+    opacity var(--motion-duration-fast) var(--motion-ease-default),
+    transform var(--motion-duration-fast) var(--motion-ease-default);
+}
+
+@media (hover: hover) {
+  .home-role-link:hover {
+    opacity: 0.2;
+    transform: translateX(-0.5rem);
+  }
+}
+
+/* About 스타일 */
+.about-lead {
+  font-size: var(--text-fluid-about-lead);
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: var(--tracking-tight);
+}
+
+.about-signature {
+  font-size: var(--text-fluid-signature);
+  line-height: 1;
+}
+
+.about-description {
+  font-size: var(--text-fluid-body);
+  letter-spacing: var(--tracking-tight);
+}
+
+.profile-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+@media (min-width: 640px) {
+  .profile-stack {
+    gap: 4rem;
+  }
+}
+
+/* 버튼 공통 스타일 */
+.menu-button {
+  z-index: var(--z-header);
+  cursor: pointer;
+  font-size: var(--text-fluid-nav-action);
+}
+
 /* 메뉴링크 스타일 */
 .menu-link {
-  font-size: clamp(2rem, 6vw, 6rem);
+  font-size: var(--text-fluid-menu-link);
   font-weight: 600;
   line-height: 1.2;
-  letter-spacing: -0.05rem;
-  transition: all 0.3s ease;
+  letter-spacing: var(--tracking-tight);
+  transition:
+    opacity var(--motion-duration-fast) var(--motion-ease-default),
+    transform var(--motion-duration-fast) var(--motion-ease-default);
 }
 .menu-link::before {
   content: "↼";
   position: absolute;
   left: -2.5rem;
   transform: translateX(-10px);
-  transition: all 0.3s ease;
+  transition:
+    opacity var(--motion-duration-fast) var(--motion-ease-default),
+    transform var(--motion-duration-fast) var(--motion-ease-default);
   opacity: 0;
 }
 .menu-link:hover::before {
@@ -33,17 +206,17 @@
 .nav {
   position: fixed;
   inset: 0;
-  z-index: 40;
+  z-index: var(--z-nav);
   background: var(--color-text);
   color: var(--color-bg);
   transition:
-    clip-path 0.7s cubic-bezier(0.76, 0, 0.24, 1),
-    visibility 0.8s cubic-bezier(0.76, 0, 0.24, 1);
+    clip-path 0.7s var(--motion-ease-menu),
+    visibility 0.8s var(--motion-ease-menu);
 }
 /* 열릴 때 (원형 확장) */
 .nav-open {
   clip-path: circle(150% at 100% 0%);
-  transition: clip-path 0.6s cubic-bezier(0.76, 0, 0.24, 1);
+  transition: clip-path var(--motion-duration-menu-open) var(--motion-ease-menu);
 }
 
 /* 초기 상태 */
@@ -55,7 +228,7 @@
 /* 닫힐 때 (왼 → 오른쪽) */
 .nav-closing {
   clip-path: inset(0 0 0 0);
-  animation: wipeOut 0.5s cubic-bezier(0.76, 0, 0.24, 1) forwards;
+  animation: wipeOut var(--motion-duration-menu-close) var(--motion-ease-menu) forwards;
 }
 
 /* 핵심 애니메이션 */

@@ -32,5 +32,15 @@
       "company": "Industry Project (Training Program)",
       "role": "Student"
     }
+  ],
+  "certification": [
+    {
+      "period": "SEP 2025",
+      "title": "Craftsman Web Design and Development"
+    },
+    {
+      "period": "SEP 2025",
+      "title": "ADsP"
+    }
   ]
 }
