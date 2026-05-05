@@ -201,6 +201,10 @@
   background: var(--color-muted);
 }
 
+.design-preview img {
+  filter: brightness(0.8);
+}
+
 .design-project-list {
   position: relative;
   z-index: 1;
