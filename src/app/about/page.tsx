@@ -11,18 +11,18 @@ export default function page() {
     <div className="page-content">
       <div className="grid grid-cols-1 lg:grid-cols-[1.5fr_1fr] gap-6 md:gap-10 lg:gap-20">
         <div className="order-1 relative">
-          <div className="grid grid-cols-2 gap-4 md:gap-6">
-            <div className="col-span-2 about-lead mb-4 sm:mb-0 lg:mb-16">
+          <div className="grid grid-cols-[1fr_2fr] gap-4 md:gap-6">
+            <div className="col-span-2 about-lead mb-2 sm:mb-0 lg:mb-4">
               I build what I envision, from branding and packaging to web
               applications and beyond. No limits in medium, only intention in
               execution.
             </div>
-            <div className="aspect-4/3 relative">
+            <div className="aspect-[3/3.5] relative">
               <Image
-                src="/images/profilee.jpg"
+                src="/images/profile2.jpg"
                 alt="profile"
                 fill
-                className="object-cover object-center"
+                className="about-profile-image object-cover"
               />
             </div>
             <div className="flex flex-col justify-end">

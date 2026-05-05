@@ -152,6 +152,10 @@
   letter-spacing: var(--tracking-tight);
 }
 
+.about-profile-image {
+  object-position: center -0.75rem;
+}
+
 .about-profile-divider {
   display: block;
   grid-column: 1 / -1;
