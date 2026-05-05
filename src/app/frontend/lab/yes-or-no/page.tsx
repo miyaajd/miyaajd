@@ -5,6 +5,10 @@ import devdata from "@/src/data/devdata.json";
 export default function YesOrNoPage() {
   const lab = devdata.devData.find((item) => item.title === "Lab");
   const tool = lab?.depth.find((item) => item.href?.includes("yes-or-no"));
+  const desc =
+    tool && "desc" in tool && typeof tool.desc === "string"
+      ? tool.desc
+      : undefined;
 
   return (
     <main className="page-content dev-tool-page">
@@ -12,7 +16,7 @@ export default function YesOrNoPage() {
         <span aria-hidden="true">←</span>
         <span>Back to Menu</span>
       </Link>
-      <YesOrNoDecision desc={tool?.desc} />
+      <YesOrNoDecision desc={desc} />
     </main>
   );
 }
