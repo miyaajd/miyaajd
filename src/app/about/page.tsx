@@ -17,7 +17,7 @@ export default function page() {
               applications and beyond. No limits in medium, only intention in
               execution.
             </div>
-            <div className="aspect-[3/3.5] relative">
+            <div className="aspect-3/3.5 relative">
               <Image
                 src="/images/profile2.jpg"
                 alt="profile"

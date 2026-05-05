@@ -15,12 +15,14 @@ type Props = {
   project: ProjectSummary;
   nextProject: ProjectSummary;
   images: Array<[string, string]>;
+  basePath?: string;
 };
 
 export default function DesignProjectDetail({
   project,
   nextProject,
   images,
+  basePath = "/design",
 }: Props) {
   const [isInfoOpen, setIsInfoOpen] = useState(false);
 
@@ -76,12 +78,15 @@ export default function DesignProjectDetail({
         </div>
 
         <div className="design-detail-footer-row design-detail-footer-nav">
-          <Link href="/design" className="design-detail-back">
+          <Link href={basePath} className="design-detail-back">
             <span aria-hidden="true">←</span>
             <span>All Projects</span>
           </Link>
 
-          <Link href={`/design/${nextProject.no}`} className="design-detail-next">
+          <Link
+            href={`${basePath}/${nextProject.no}`}
+            className="design-detail-next"
+          >
             <span>Next Project</span>
             <span aria-hidden="true">→</span>
           </Link>

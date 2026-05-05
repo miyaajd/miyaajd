@@ -184,24 +184,71 @@
   }
 }
 
+/* Visual 스타일 */
+.visual-page {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  width: 100%;
+  height: 100dvh;
+  overflow: hidden;
+}
+
+.visual-page-image {
+  object-fit: cover;
+  object-position: center;
+}
+
+.visual-project-section {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  width: 100%;
+  height: 100%;
+  place-items: center;
+}
+
+.visual-project-list {
+  grid-area: auto;
+}
+
+.visual-project-item {
+  color: var(--color-text);
+  cursor: default;
+}
+
+.visual-project-item .design-project-no,
+.visual-project-item .design-project-year {
+  opacity: 1;
+}
+
+.visual-page + .site-footer {
+  position: fixed;
+  left: 1rem;
+  right: 1rem;
+  bottom: 1rem;
+  z-index: var(--z-header);
+}
+
 /* Design 스타일 */
 .design-project-section {
   position: relative;
   display: grid;
+  width: 100%;
   min-height: calc(95dvh - 11rem);
+  grid-template-areas: "preview";
   place-items: center;
   padding-block: 2rem;
 }
 
 .design-preview {
-  position: absolute;
-  left: 50%;
-  top: 50%;
+  position: relative;
+  grid-area: preview;
   z-index: 0;
   width: min(72vw, 42rem);
+  max-width: 100%;
   aspect-ratio: 3 / 3.5;
   overflow: hidden;
-  transform: translate(-50%, -50%);
   background: var(--color-muted);
 }
 
@@ -211,6 +258,7 @@
 
 .design-project-list {
   position: relative;
+  grid-area: preview;
   z-index: 1;
   display: grid;
   width: 100%;
@@ -403,32 +451,6 @@
   }
 }
 
-@media (max-width: 479px) {
-  .design-page-content {
-    min-height: auto;
-    padding-top: 3.25rem;
-    padding-bottom: 3.25rem;
-  }
-
-  .design-project-section {
-    min-height: calc(100dvh - 10rem);
-    padding-block: 0;
-  }
-
-  .design-preview {
-    width: min(96vw, 30rem);
-  }
-
-  .design-project-item {
-    color: #fff;
-  }
-
-  .design-project-no,
-  .design-project-year {
-    opacity: 1;
-  }
-}
-
 @media (min-width: 640px) {
   .design-detail-page {
     padding-top: 5.5rem;
@@ -455,7 +477,43 @@
 
 @media (min-width: 768px) and (max-width: 1023px) {
   .design-project-section {
-    padding-block: 5rem;
+    padding-block: 0;
+  }
+}
+
+@media (max-width: 1023px) {
+  .design-page-content {
+    min-height: auto;
+    padding-block: 4.5rem;
+  }
+
+  .design-project-section {
+    min-height: calc(100dvh - 13rem);
+    padding-block: 0;
+  }
+}
+
+@media (max-width: 479px) {
+  .design-page-content {
+    padding-block: 3.25rem;
+  }
+
+  .design-project-section {
+    min-height: calc(100dvh - 10rem);
+  }
+
+  .design-preview {
+    width: 100%;
+    max-width: 30rem;
+  }
+
+  .design-project-item {
+    color: #fff;
+  }
+
+  .design-project-no,
+  .design-project-year {
+    opacity: 1;
   }
 }
 
@@ -489,6 +547,11 @@
 
   .design-project-item:nth-child(3n + 2) {
     color: var(--color-text-light);
+  }
+
+  .visual-project-item,
+  .visual-project-item:nth-child(3n + 2) {
+    color: var(--color-text);
   }
 }
 
