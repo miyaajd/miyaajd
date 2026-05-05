@@ -12,8 +12,8 @@
   --text-fluid-caption: clamp(12px, 0.9vw, 16px);
   --text-fluid-intro: clamp(12px, 1vw, 2rem);
   --text-fluid-eyebrow: clamp(1rem, 6vw, 6rem);
-  --text-fluid-hero-link: clamp(2rem, 8vw, 8rem);
-  --text-fluid-menu-link: clamp(2rem, 5vw, 5rem);
+  --text-fluid-hero-link: clamp(1.8rem, 8vw, 8rem);
+  --text-fluid-menu-link: clamp(1.8rem, 5vw, 5rem);
   --text-fluid-nav-action: clamp(1rem, 1.5vw, 1.5rem);
   --text-fluid-about-lead: clamp(2rem, 4vw, 4rem);
   --text-fluid-signature: clamp(1rem, 2vw, 4rem);
