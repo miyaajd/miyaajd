@@ -821,7 +821,7 @@
   overscroll-behavior-x: contain;
   scroll-snap-type: x proximity;
   cursor: grab;
-  touch-action: pan-y;
+  touch-action: auto;
   user-select: none;
 }
 

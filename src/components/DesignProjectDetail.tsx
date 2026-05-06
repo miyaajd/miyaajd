@@ -34,7 +34,11 @@ export default function DesignProjectDetail({
   });
 
   function handlePointerDown(event: PointerEvent<HTMLDivElement>) {
-    if (!event.isPrimary || event.button !== 0) {
+    if (
+      event.pointerType !== "mouse" ||
+      !event.isPrimary ||
+      event.button !== 0
+    ) {
       return;
     }
 
