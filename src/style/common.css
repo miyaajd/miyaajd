@@ -820,6 +820,14 @@
   overflow-x: auto;
   overscroll-behavior-x: contain;
   scroll-snap-type: x proximity;
+  cursor: grab;
+  touch-action: pan-y;
+  user-select: none;
+}
+
+.design-detail-strip.is-dragging {
+  cursor: grabbing;
+  scroll-snap-type: none;
 }
 
 .design-detail-strip::-webkit-scrollbar {

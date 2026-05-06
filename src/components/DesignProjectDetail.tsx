@@ -2,7 +2,8 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
+import type { PointerEvent } from "react";
+import { useRef, useState } from "react";
 
 type ProjectSummary = {
   no: string;
@@ -25,13 +26,66 @@ export default function DesignProjectDetail({
   basePath = "/design",
 }: Props) {
   const [isInfoOpen, setIsInfoOpen] = useState(false);
+  const [isDragging, setIsDragging] = useState(false);
+  const dragState = useRef({
+    isActive: false,
+    startX: 0,
+    scrollLeft: 0,
+  });
+
+  function handlePointerDown(event: PointerEvent<HTMLDivElement>) {
+    if (!event.isPrimary || event.button !== 0) {
+      return;
+    }
+
+    const strip = event.currentTarget;
+
+    dragState.current = {
+      isActive: true,
+      startX: event.clientX,
+      scrollLeft: strip.scrollLeft,
+    };
+
+    setIsDragging(true);
+    strip.setPointerCapture(event.pointerId);
+  }
+
+  function handlePointerMove(event: PointerEvent<HTMLDivElement>) {
+    if (!dragState.current.isActive) {
+      return;
+    }
+
+    const strip = event.currentTarget;
+    const distance = event.clientX - dragState.current.startX;
+
+    strip.scrollLeft = dragState.current.scrollLeft - distance;
+    event.preventDefault();
+  }
+
+  function stopDragging(event: PointerEvent<HTMLDivElement>) {
+    if (!dragState.current.isActive) {
+      return;
+    }
+
+    dragState.current.isActive = false;
+    setIsDragging(false);
+
+    if (event.currentTarget.hasPointerCapture(event.pointerId)) {
+      event.currentTarget.releasePointerCapture(event.pointerId);
+    }
+  }
 
   return (
     <section className="design-detail-page">
       <div className="design-detail-gallery">
         <div
-          className="design-detail-strip"
+          className={`design-detail-strip${isDragging ? " is-dragging" : ""}`}
           aria-label={`${project.title} images`}
+          onPointerDown={handlePointerDown}
+          onPointerMove={handlePointerMove}
+          onPointerUp={stopDragging}
+          onPointerCancel={stopDragging}
+          onPointerLeave={stopDragging}
         >
           {images.map(([imageNo, src]) => (
             <figure key={imageNo} className="design-detail-strip-image">
@@ -42,6 +96,7 @@ export default function DesignProjectDetail({
                 sizes="(max-width: 640px) 82vw, (max-width: 1024px) 48vw, 28vw"
                 className="object-cover object-center"
                 priority={imageNo === "01"}
+                draggable={false}
               />
             </figure>
           ))}
