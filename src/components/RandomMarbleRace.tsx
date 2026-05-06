@@ -494,6 +494,8 @@ export default function RandomMarbleRace({ desc }: Props) {
 
         if (moved < STUCK_MOVEMENT_THRESHOLD) {
           if (window.confirm(TEXT.stuckConfirm)) {
+            const restartedAt = performance.now();
+
             marblesRef.current = createMarbles(marbleCount).map(
               (marble, index) => ({
                 ...marble,
@@ -501,9 +503,10 @@ export default function RandomMarbleRace({ desc }: Props) {
                 vy: 1.4 + Math.random() * 0.4,
               })
             );
-            startedAtRef.current = performance.now();
+            startedAtRef.current = restartedAt;
+            previousTime = restartedAt;
             stuckStateRef.current = {
-              checkedAt: time,
+              checkedAt: restartedAt,
               leaderY: 36,
             };
             setWinnerId(null);
