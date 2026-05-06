@@ -12,6 +12,7 @@ const PEG_RADIUS = 5;
 const FINISH_Y = BOARD_HEIGHT - 72;
 const STUCK_CHECK_DELAY = 2600;
 const STUCK_MOVEMENT_THRESHOLD = 8;
+const MAX_NAME_LENGTH = 6;
 const TEXT = {
   marbleCount: "\ub9c8\ube14 \uac1c\uc218",
   name: "\uc774\ub984",
@@ -22,6 +23,8 @@ const TEXT = {
   title: "\ub79c\ub364 \ub9c8\ube14 \ub808\uc774\uc2a4",
   stuckConfirm:
     "\ub9c8\ube14\uc774 \ubaa8\ub450 \uc7a5\uc560\ubb3c\uc5d0 \uac78\ub838\uc2b5\ub2c8\ub2e4. \uac8c\uc784\uc744 \ub2e4\uc2dc \uc2dc\uc791\ud558\uc2dc\uaca0\uc2b5\ub2c8\uae4c?",
+  nameLimit:
+    "\uc774\ub984\uc740 \ucd5c\ub300 6\uae00\uc790\uae4c\uc9c0 \uc785\ub825\ud560 \uc218 \uc788\uc2b5\ub2c8\ub2e4.",
 };
 const MARBLE_COLORS = [
   "#C8DDEB", // Ice Blue
@@ -347,6 +350,11 @@ export default function RandomMarbleRace({ desc }: Props) {
   }
 
   function handleNameChange(index: number, value: string) {
+    if (value.length > MAX_NAME_LENGTH) {
+      window.alert(TEXT.nameLimit);
+      return;
+    }
+
     setMarbleNames((current) =>
       current.map((name, nameIndex) => (nameIndex === index ? value : name))
     );
