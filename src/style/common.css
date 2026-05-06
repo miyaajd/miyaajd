@@ -640,35 +640,64 @@
 .yesno-modal-panel {
   position: relative;
   z-index: 2;
+  width: min(100%, 26rem);
+  gap: 1.35rem;
+  border-radius: 1.75rem;
+  padding: 2.15rem 1.75rem 1.75rem;
 }
 
-.yesno-modal-question-card {
-  display: grid;
-  width: 100%;
-  gap: 0.45rem;
-  border-top: 1px solid rgb(0 0 0 / 0.12);
-  padding-top: 0.95rem;
-}
-
-.yesno-modal-question-card span {
-  color: var(--color-text-light);
-  font-size: 0.72rem;
-  letter-spacing: 0.08em;
-  line-height: 1;
-  text-transform: uppercase;
-}
-
-.yesno-modal-question-card p {
-  max-width: 100%;
-  color: var(--color-text);
+.yesno-modal-bubble {
+  position: relative;
+  align-self: flex-start;
+  max-width: min(100%, 19rem);
+  margin-left: 0.35rem;
+  border-radius: 1.25rem 1.25rem 1.25rem 0.45rem;
+  padding: 0.82rem 1rem;
+  color: rgb(28 28 30);
   font-size: var(--text-fluid-body);
   line-height: 1.35;
+  text-align: left;
+  background: rgb(233 233 235);
+  box-shadow: inset 0 0 0 1px rgb(0 0 0 / 0.025);
   overflow-wrap: anywhere;
+}
+
+.yesno-modal-bubble::before {
+  position: absolute;
+  left: -0.26rem;
+  bottom: 0;
+  width: 0.8rem;
+  height: 1rem;
+  border-bottom-right-radius: 0.9rem;
+  background: rgb(233 233 235);
+  content: "";
+}
+
+.yesno-modal-bubble::after {
+  position: absolute;
+  left: -0.72rem;
+  bottom: 0;
+  width: 0.72rem;
+  height: 1rem;
+  border-bottom-right-radius: 0.85rem;
+  background: var(--color-bg);
+  content: "";
+}
+
+.yesno-modal-kicker {
+  margin-top: 0.25rem;
+  color: var(--color-text-light);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
 }
 
 .yesno-modal-panel strong {
   font-size: clamp(3rem, 10vw, 8rem);
   line-height: 0.9;
+}
+
+.yesno-modal-panel .roulette-action-button {
+  margin-top: 0.15rem;
 }
 
 .celebration-particles {

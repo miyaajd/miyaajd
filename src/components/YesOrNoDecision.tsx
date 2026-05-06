@@ -76,11 +76,8 @@ export default function YesOrNoDecision({ desc }: Props) {
         >
           {result === "YES" && <CelebrationParticles />}
           <div className="roulette-modal-panel yesno-modal-panel">
-            <div className="yesno-modal-question-card">
-              <span>My concern</span>
-              <p>{submittedQuestion}</p>
-            </div>
-            <p>Destiny says</p>
+            <p className="yesno-modal-bubble">{submittedQuestion}</p>
+            <p className="yesno-modal-kicker">Destiny says</p>
             <strong>{result}!</strong>
             <button
               type="button"
