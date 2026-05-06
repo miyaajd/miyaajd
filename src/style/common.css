@@ -700,6 +700,177 @@
   margin-top: 0.15rem;
 }
 
+.marble-race-tool {
+  display: flex;
+  width: min(100%, 72rem);
+  flex-direction: column;
+  gap: 1.5rem;
+  align-items: center;
+}
+
+.marble-race-tool .dev-tool-heading {
+  width: 100%;
+  max-width: none;
+  padding-top: 1rem;
+}
+
+.marble-race-tool .dev-tool-title,
+.marble-race-tool .dev-tool-desc {
+  width: 100%;
+  max-width: none;
+}
+
+.marble-race-layout {
+  display: grid;
+  width: min(100%, 48rem);
+  grid-template-columns: 1fr;
+  gap: 1.15rem;
+  align-items: start;
+}
+
+.marble-race-layout.is-expanded {
+  align-items: start;
+}
+
+.marble-race-board {
+  overflow: hidden;
+  max-height: 42.5rem;
+  border: 1px solid rgb(0 0 0 / 0.1);
+  border-radius: 1.25rem;
+  background: #f7f7f6;
+  box-shadow: 0 1rem 3rem rgb(0 0 0 / 0.08);
+  transition: max-height 900ms var(--motion-ease-default),
+    border-radius 900ms var(--motion-ease-default);
+}
+
+.marble-race-layout.is-expanded .marble-race-board {
+  max-height: 620rem;
+  border-radius: 1.25rem;
+}
+
+.marble-race-canvas {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.marble-race-controls {
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+  border: 1px solid rgb(0 0 0 / 0.08);
+  border-radius: 1rem;
+  padding: 1rem;
+  background: rgb(255 255 255 / 0.66);
+}
+
+.marble-race-count {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  align-items: center;
+}
+
+.marble-race-count span {
+  color: var(--color-text-light);
+  font-size: var(--text-fluid-caption);
+}
+
+.marble-race-count select {
+  border: 1px solid rgb(0 0 0 / 0.12);
+  border-radius: 999px;
+  padding: 0.55rem 2rem 0.55rem 0.85rem;
+  color: var(--color-text);
+  font: inherit;
+  background: rgb(255 255 255 / 0.85);
+}
+
+.marble-race-palette {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+}
+
+.marble-race-palette span,
+.marble-race-winner-dot {
+  display: block;
+  width: 1.15rem;
+  aspect-ratio: 1;
+  border: 1px solid rgb(255 255 255 / 0.72);
+  border-radius: 999px;
+  box-shadow: 0 0.25rem 0.8rem rgb(0 0 0 / 0.12);
+}
+
+.marble-race-name-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.55rem;
+}
+
+.marble-race-name-field {
+  display: flex;
+  min-width: 0;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.marble-race-name-field span {
+  flex: 0 0 auto;
+  width: 0.85rem;
+  aspect-ratio: 1;
+  border: 1px solid rgb(255 255 255 / 0.72);
+  border-radius: 999px;
+  box-shadow: 0 0.2rem 0.65rem rgb(0 0 0 / 0.12);
+}
+
+.marble-race-name-field input {
+  width: 100%;
+  min-width: 0;
+  border: 1px solid rgb(0 0 0 / 0.08);
+  border-radius: 999px;
+  padding: 0.6rem 0.8rem;
+  color: var(--color-text);
+  font: inherit;
+  font-size: var(--text-fluid-caption);
+  background: rgb(255 255 255 / 0.7);
+  outline: none;
+}
+
+.marble-race-name-field input:focus {
+  border-color: rgb(0 0 0 / 0.2);
+  background: rgb(255 255 255 / 0.95);
+}
+
+.marble-race-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+}
+
+.marble-race-reset {
+  color: var(--color-text);
+  background: rgb(0 0 0 / 0.06);
+}
+
+.marble-race-modal {
+  overflow: hidden;
+}
+
+.marble-race-modal-panel {
+  position: relative;
+  z-index: 2;
+  gap: 1.2rem;
+}
+
+.marble-race-winner-dot {
+  width: 2.5rem;
+}
+
+.marble-race-modal-panel strong {
+  font-size: clamp(2.6rem, 8vw, 5.5rem);
+  line-height: 0.95;
+}
+
 .celebration-particles {
   position: absolute;
   left: 50%;
@@ -1005,6 +1176,18 @@
     width: min(18%, 4.25rem);
   }
 
+  .marble-race-controls {
+    gap: 0.85rem;
+  }
+
+  .marble-race-actions .roulette-action-button {
+    flex: 1 1 7rem;
+  }
+
+  .marble-race-name-list {
+    grid-template-columns: 1fr;
+  }
+
   .design-detail-footer-row {
     align-items: center;
   }
@@ -1087,6 +1270,10 @@
     min-height: calc(100dvh - 13rem);
     padding-top: clamp(5rem, 20dvh, 12rem);
     padding-bottom: 2rem;
+  }
+
+  .marble-race-layout {
+    max-width: 30rem;
   }
 }
 

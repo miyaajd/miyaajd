@@ -47,6 +47,13 @@
           "href": "/frontend/lab/yes-or-no",
           "desc": "고민을 입력하고 YES 또는 NO 답변을 랜덤으로 확인합니다.",
           "depth": []
+        },
+        {
+          "no": "03",
+          "title": "랜덤 마블 레이스",
+          "href": "/frontend/lab/random-marble-race",
+          "desc": "2~12개의 마블을 선택하고, 가장 먼저 도착하는 승자를 확인합니다.",
+          "depth": []
         }
       ]
     },
