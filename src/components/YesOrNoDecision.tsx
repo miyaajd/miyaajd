@@ -3,24 +3,40 @@
 import { useState } from "react";
 import CelebrationParticles from "@/src/components/CelebrationParticles";
 
+const MAX_QUESTION_LENGTH = 30;
+
 type Props = {
   desc?: string;
 };
 
 export default function YesOrNoDecision({ desc }: Props) {
   const [question, setQuestion] = useState("");
+  const [submittedQuestion, setSubmittedQuestion] = useState("");
   const [result, setResult] = useState("");
 
-  function handleDecide() {
-    if (!question.trim()) {
+  function handleQuestionChange(value: string) {
+    if (value.length > MAX_QUESTION_LENGTH) {
+      window.alert("최대 30자까지 입력할 수 있습니다.");
       return;
     }
 
+    setQuestion(value);
+  }
+
+  function handleDecide() {
+    const trimmedQuestion = question.trim();
+
+    if (!trimmedQuestion) {
+      return;
+    }
+
+    setSubmittedQuestion(trimmedQuestion);
     setResult(Math.random() > 0.5 ? "YES" : "NO");
   }
 
   function handleReset() {
     setQuestion("");
+    setSubmittedQuestion("");
     setResult("");
   }
 
@@ -37,7 +53,7 @@ export default function YesOrNoDecision({ desc }: Props) {
         <label className="yesno-field">
           <input
             value={question}
-            onChange={(event) => setQuestion(event.target.value)}
+            onChange={(event) => handleQuestionChange(event.target.value)}
             placeholder="고민이 무엇인가요?"
             aria-label="고민 입력"
           />
@@ -60,6 +76,10 @@ export default function YesOrNoDecision({ desc }: Props) {
         >
           {result === "YES" && <CelebrationParticles />}
           <div className="roulette-modal-panel yesno-modal-panel">
+            <div className="yesno-modal-question-card">
+              <span>My concern</span>
+              <p>{submittedQuestion}</p>
+            </div>
             <p>Destiny says</p>
             <strong>{result}!</strong>
             <button

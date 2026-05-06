@@ -642,6 +642,30 @@
   z-index: 2;
 }
 
+.yesno-modal-question-card {
+  display: grid;
+  width: 100%;
+  gap: 0.45rem;
+  border-top: 1px solid rgb(0 0 0 / 0.12);
+  padding-top: 0.95rem;
+}
+
+.yesno-modal-question-card span {
+  color: var(--color-text-light);
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.yesno-modal-question-card p {
+  max-width: 100%;
+  color: var(--color-text);
+  font-size: var(--text-fluid-body);
+  line-height: 1.35;
+  overflow-wrap: anywhere;
+}
+
 .yesno-modal-panel strong {
   font-size: clamp(3rem, 10vw, 8rem);
   line-height: 0.9;
