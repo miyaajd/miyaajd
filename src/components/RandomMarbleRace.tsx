@@ -19,6 +19,7 @@ const TEXT = {
   clearAll: "\uc804\uccb4 \uc9c0\uc6b0\uae30",
   winner: "\uc2b9\uc790",
   again: "\ub2e4\uc2dc\ud558\uae30",
+  title: "\ub79c\ub364 \ub9c8\ube14 \ub808\uc774\uc2a4",
   stuckConfirm:
     "\ub9c8\ube14\uc774 \ubaa8\ub450 \uc7a5\uc560\ubb3c\uc5d0 \uac78\ub838\uc2b5\ub2c8\ub2e4. \uac8c\uc784\uc744 \ub2e4\uc2dc \uc2dc\uc791\ud558\uc2dc\uaca0\uc2b5\ub2c8\uae4c?",
 };
@@ -40,6 +41,7 @@ const MARBLE_COLORS = [
 type Marble = {
   id: number;
   color: string;
+  name: string;
   x: number;
   y: number;
   vx: number;
@@ -133,6 +135,7 @@ function createMarbles(count: number) {
   return Array.from({ length: count }, (_, index) => ({
     id: index + 1,
     color: MARBLE_COLORS[index],
+    name: "",
     x: spacing * (index + 1),
     y: 36,
     vx: 0,
@@ -143,6 +146,33 @@ function createMarbles(count: number) {
 
 function createNames(count: number) {
   return Array.from({ length: count }, () => "");
+}
+
+function shuffleMarbleEntries(names: string[], count: number) {
+  const entries = Array.from({ length: count }, (_, index) => ({
+    color: MARBLE_COLORS[index],
+    name: names[index].trim() || `${TEXT.name} ${index + 1}`,
+  }));
+
+  for (let index = entries.length - 1; index > 0; index -= 1) {
+    const randomIndex = Math.floor(Math.random() * (index + 1));
+    const current = entries[index];
+
+    entries[index] = entries[randomIndex];
+    entries[randomIndex] = current;
+  }
+
+  return entries;
+}
+
+function createRaceMarbles(names: string[], count: number) {
+  const entries = shuffleMarbleEntries(names, count);
+
+  return createMarbles(count).map((marble, index) => ({
+    ...marble,
+    color: entries[index].color,
+    name: entries[index].name,
+  }));
 }
 
 function collideWithBar(marble: Marble, bar: Bar) {
@@ -274,6 +304,17 @@ export default function RandomMarbleRace({ desc }: Props) {
     drawBoard(context, obstacles, marblesRef.current, winnerId);
   }, [obstacles, winnerId]);
 
+  const paintResetBoard = useCallback((marbles: Marble[]) => {
+    const canvas = canvasRef.current;
+    const context = canvas?.getContext("2d");
+
+    if (!canvas || !context) {
+      return;
+    }
+
+    drawBoard(context, obstacles, marbles, null);
+  }, [obstacles]);
+
   function resetRace(nextCount = marbleCount) {
     if (frameRef.current) {
       cancelAnimationFrame(frameRef.current);
@@ -285,7 +326,10 @@ export default function RandomMarbleRace({ desc }: Props) {
       resultTimeoutRef.current = null;
     }
 
-    marblesRef.current = createMarbles(nextCount);
+    const resetMarbles = createMarbles(nextCount);
+
+    marblesRef.current = resetMarbles;
+    paintResetBoard(resetMarbles);
     setIsRacing(false);
     setHasStarted(false);
     setWinnerId(null);
@@ -336,11 +380,13 @@ export default function RandomMarbleRace({ desc }: Props) {
     setHasStarted(true);
     setIsRacing(true);
 
-    marblesRef.current = marblesRef.current.map((marble, index) => ({
-      ...marble,
-      vx: (index - (marbleCount - 1) / 2) * 0.18,
-      vy: 1.4 + Math.random() * 0.4,
-    }));
+    marblesRef.current = createRaceMarbles(marbleNames, marbleCount).map(
+      (marble, index) => ({
+        ...marble,
+        vx: (index - (marbleCount - 1) / 2) * 0.18,
+        vy: 1.4 + Math.random() * 0.4,
+      })
+    );
     stuckStateRef.current = {
       checkedAt: performance.now(),
       leaderY: 36,
@@ -465,8 +511,7 @@ export default function RandomMarbleRace({ desc }: Props) {
 
       if (nextWinner) {
         const winnerName =
-          marbleNames[nextWinner.id - 1].trim() ||
-          `${TEXT.name} ${nextWinner.id}`;
+          nextWinner.name || `${TEXT.name} ${nextWinner.id}`;
 
         setWinnerId(nextWinner.id);
         setIsRacing(false);
@@ -496,13 +541,14 @@ export default function RandomMarbleRace({ desc }: Props) {
           if (window.confirm(TEXT.stuckConfirm)) {
             const restartedAt = performance.now();
 
-            marblesRef.current = createMarbles(marbleCount).map(
-              (marble, index) => ({
+            marblesRef.current = createRaceMarbles(
+              marbleNames,
+              marbleCount
+            ).map((marble, index) => ({
                 ...marble,
                 vx: (index - (marbleCount - 1) / 2) * 0.18,
                 vy: 1.4 + Math.random() * 0.4,
-              })
-            );
+              }));
             startedAtRef.current = restartedAt;
             previousTime = restartedAt;
             stuckStateRef.current = {
